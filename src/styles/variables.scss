@@ -1,0 +1,11 @@
+:root {
+  --c-page-bg: #242424;
+  --ct-base: #eeeeee;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --ct-base:: #213547;
+    --c-page-bg: #ffffff;
+  }
+}
