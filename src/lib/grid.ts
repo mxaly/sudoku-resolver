@@ -1,10 +1,10 @@
-type sudokuValue = null | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+export type sudokuValue = null | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
-type cellAddress = [number, number];
+export type cellAddress = [number, number];
 
 interface CellData {
-  value?: sudokuValue;
-  options?: sudokuValue[];
+  value: sudokuValue;
+  options: sudokuValue[];
 }
 
 export interface Cell extends CellData {
@@ -15,7 +15,7 @@ export interface Cell extends CellData {
 
 export interface Grid {
   get: (addr: cellAddress) => Cell;
-  set: (addr: cellAddress, data: CellData) => void;
+  set: (addr: cellAddress, data: Partial<CellData>) => void;
   readonly cells: Cell[];
 }
 
@@ -49,7 +49,8 @@ export function createGrid(): Grid {
     }
   }
   return {
-    set: (addr: cellAddress, data: CellData) => setCell(cells, addr, data),
+    set: (addr: cellAddress, data: Partial<CellData>) =>
+      setCell(cells, addr, data),
     get: (addr: cellAddress) => getCell(cells, addr),
     cells,
   };
@@ -59,7 +60,7 @@ function getCell(cells: Cell[], addr: cellAddress): Cell {
   return cells[getIndex(addr)];
 }
 
-function setCell(cells: Cell[], addr: cellAddress, data: CellData) {
+function setCell(cells: Cell[], addr: cellAddress, data: Partial<CellData>) {
   const cell = cells[getIndex(addr)];
   cells[getIndex(addr)] = { ...cell, ...data };
 }
