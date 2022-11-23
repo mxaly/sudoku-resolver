@@ -1,11 +1,47 @@
 :root {
-  --c-page-bg: #242424;
-  --ct-base: #eeeeee;
+  --c-primary: #66fcf1;
+  --c-secondary: #45a29e;
+
+  --c-grey-10: #0b0c10;
+  --c-grey-20: #1f2833;
+  --c-grey-30: #757575;
+  --c-grey-40: #c5c5c7;
+
+  --c-white: #fff;
+  --c-black: #000;
+
+  --c-text-base: var(--c-white);
+  --c-text-heading: var(--c-primary);
+
+  --c-text-secondary: var(--c-grey-40);
+  --c-text-secondary-dark: var(--c-grey-30);
+
+  --c-page-bg: var(--c-gray-10);
+  --c-panel-bg: var(--c-grey-20);
+
+  --c-border: var(--c-grey-30);
+
+  --fs-h1: #{sass_clamp(2.2, 2.4)};
+  --fs-h2: #{sass_clamp(1.6, 1.8)};
+  --fs-h3: #{sass_clamp(1.4, 1.6)};
+  --fs-h4: #{sass_clamp(1.2, 1.4)};
+  --fs-h5: #{sass_clamp(1.2, 1.4)};
+
+  --fs-04: 0.6rem;
+  --fs-1: 1.2rem;
+  --fs-2: #{sass_clamp(1.2, 1.4)};
+  --fs-3: #{sass_clamp(1.4, 1.6)};
+  --fs-4: #{sass_clamp(1.6, 1.8)};
+  --fs-5: #{sass_clamp(1.8, 2)};
+  --fs-6: #{sass_clamp(2, 2.4)};
+  --fs-7: #{sass_clamp(2.4, 3)};
+  --fs-8: #{sass_clamp(3, 3.6)};
+
+  --fs-base: var(--fs-2);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --ct-base:: #213547;
-    --c-page-bg: #ffffff;
+    // todo
   }
 }
