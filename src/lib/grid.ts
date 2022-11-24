@@ -5,6 +5,7 @@ export type cellAddress = [number, number];
 interface CellData {
   value: sudokuValue;
   options: sudokuValue[];
+  isConstant: boolean;
 }
 
 export interface Cell extends CellData {
@@ -14,23 +15,27 @@ export interface Cell extends CellData {
 }
 
 export interface Grid {
+  readonly cells: Cell[];
   get: (addr: cellAddress) => Cell;
   set: (addr: cellAddress, data: Partial<CellData>) => void;
-  readonly cells: Cell[];
+  getOptions: (cell: Cell) => sudokuValue[];
 }
 
 const GRID_SIZE = 9;
+const OPTIONS = [...Array(9).keys()].map((k) => (k + 1) as sudokuValue);
 
 export function createCell({
   row,
   col,
   value,
   options,
+  isConstant,
 }: {
   row: number;
   col: number;
   value?: sudokuValue;
   options?: sudokuValue[];
+  isConstant?: boolean;
 }): Cell {
   return {
     value: value || null,
@@ -38,6 +43,7 @@ export function createCell({
     row,
     col,
     box: getBoxIndex([row, col]),
+    isConstant: !!isConstant,
   };
 }
 
@@ -49,10 +55,11 @@ export function createGrid(): Grid {
     }
   }
   return {
+    cells,
     set: (addr: cellAddress, data: Partial<CellData>) =>
       setCell(cells, addr, data),
     get: (addr: cellAddress) => getCell(cells, addr),
-    cells,
+    getOptions: (cell: Cell) => getOptions(cells, cell),
   };
 }
 
@@ -73,4 +80,12 @@ function getBoxIndex([rowIndex, colIndex]: cellAddress): number {
 
 function getIndex([row, col]: [number, number]) {
   return row * GRID_SIZE + col;
+}
+
+function getOptions(cells: Cell[], { row, col, box }: Cell) {
+  const existing = cells
+    .filter((c) => c.row === row || c.col === col || c.box === box)
+    .map((c) => c.value);
+
+  return OPTIONS.filter((o) => !existing.includes(o)) as sudokuValue[];
 }
