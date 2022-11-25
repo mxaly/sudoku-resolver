@@ -1,9 +1,9 @@
-export type sudokuValue = null | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+export type sudokuValue = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
 export type cellAddress = [number, number];
 
 interface CellData {
-  value: sudokuValue;
+  value: sudokuValue | null;
   options: sudokuValue[];
   isConstant: boolean;
 }
@@ -14,17 +14,42 @@ export interface Cell extends CellData {
   box: number;
 }
 
-export interface Grid {
-  readonly cells: Cell[];
-  get: (addr: cellAddress) => Cell;
-  set: (addr: cellAddress, data: Partial<CellData>) => void;
-  getOptions: (cell: Cell) => sudokuValue[];
-}
+export type Grid = Cell[];
 
 const GRID_SIZE = 9;
-const OPTIONS = [...Array(9).keys()].map((k) => (k + 1) as sudokuValue);
+export const OPTIONS = [...Array(9).keys()].map((k) => (k + 1) as sudokuValue);
 
-export function createCell({
+export function createGrid(): Cell[] {
+  const cells: Cell[] = [];
+  for (let row = 0; row < GRID_SIZE; row++) {
+    for (let col = 0; col < GRID_SIZE; col++) {
+      cells.push(createCell({ row, col }));
+    }
+  }
+  return cells;
+}
+
+export function createFromString(data: string): Cell[] {
+  const grid = createGrid();
+  data
+    .replaceAll(/\s/g, "")
+    .split("")
+    .forEach((val, index) => {
+      const row = Math.floor(index / 9);
+      const col = index - row * 9;
+      const num = parseInt(val);
+
+      if (num > 0) {
+        set(grid, [row, col], {
+          value: num as sudokuValue,
+          isConstant: true,
+        });
+      }
+    });
+  return grid;
+}
+
+function createCell({
   row,
   col,
   value,
@@ -33,7 +58,7 @@ export function createCell({
 }: {
   row: number;
   col: number;
-  value?: sudokuValue;
+  value?: sudokuValue | null;
   options?: sudokuValue[];
   isConstant?: boolean;
 }): Cell {
@@ -47,29 +72,14 @@ export function createCell({
   };
 }
 
-export function createGrid(): Grid {
-  const cells: Cell[] = [];
-  for (let row = 0; row < GRID_SIZE; row++) {
-    for (let col = 0; col < GRID_SIZE; col++) {
-      cells.push(createCell({ row, col }));
-    }
-  }
-  return {
-    cells,
-    set: (addr: cellAddress, data: Partial<CellData>) =>
-      setCell(cells, addr, data),
-    get: (addr: cellAddress) => getCell(cells, addr),
-    getOptions: (cell: Cell) => getOptions(cells, cell),
-  };
+export function get(grid: Grid, addr: cellAddress): Cell {
+  return grid[getIndex(addr)];
 }
 
-function getCell(cells: Cell[], addr: cellAddress): Cell {
-  return cells[getIndex(addr)];
-}
-
-function setCell(cells: Cell[], addr: cellAddress, data: Partial<CellData>) {
-  const cell = cells[getIndex(addr)];
-  cells[getIndex(addr)] = { ...cell, ...data };
+export function set(grid: Grid, addr: cellAddress, data: Partial<CellData>) {
+  const cell = grid[getIndex(addr)];
+  grid[getIndex(addr)] = { ...cell, ...data };
+  return [...grid];
 }
 
 function getBoxIndex([rowIndex, colIndex]: cellAddress): number {
@@ -80,12 +90,4 @@ function getBoxIndex([rowIndex, colIndex]: cellAddress): number {
 
 function getIndex([row, col]: [number, number]) {
   return row * GRID_SIZE + col;
-}
-
-function getOptions(cells: Cell[], { row, col, box }: Cell) {
-  const existing = cells
-    .filter((c) => c.row === row || c.col === col || c.box === box)
-    .map((c) => c.value);
-
-  return OPTIONS.filter((o) => !existing.includes(o)) as sudokuValue[];
 }

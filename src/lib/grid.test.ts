@@ -1,16 +1,32 @@
-import { createGrid } from "./grid";
+import { createFromString, createGrid, get, set } from "./grid";
 import { describe, it, expect } from "vitest";
 
 describe("Grid", () => {
   test("createGrid", () => {
-    expect(createGrid().cells).toMatchSnapshot();
+    expect(createGrid()).toMatchSnapshot();
+  });
+
+  test("createFromString", () => {
+    const testStr = `
+      123456789
+      234567891
+      345678912
+      456789123
+      567891234
+      678912345
+      789123456
+      891234567
+      000000000
+    `;
+
+    expect(createFromString(testStr)).toMatchSnapshot();
   });
 
   test("set", () => {
     const grid = createGrid();
 
-    grid.set([0, 0], { value: 3 });
-    expect(grid.cells[0]).toEqual({
+    set(grid, [0, 0], { value: 3 });
+    expect(grid[0]).toEqual({
       box: 0,
       col: 0,
       isConstant: false,
@@ -23,7 +39,7 @@ describe("Grid", () => {
   test("get", () => {
     const grid = createGrid();
 
-    expect(grid.get([8, 8])).toEqual({
+    expect(get(grid, [8, 8])).toEqual({
       box: 8,
       col: 8,
       isConstant: false,
@@ -32,7 +48,7 @@ describe("Grid", () => {
       value: null,
     });
 
-    expect(grid.get([4, 6])).toEqual({
+    expect(get(grid, [4, 6])).toEqual({
       box: 5,
       col: 6,
       isConstant: false,
@@ -40,19 +56,5 @@ describe("Grid", () => {
       row: 4,
       value: null,
     });
-  });
-
-  test("getOptions", () => {
-    const grid = createGrid();
-
-    grid.set([0, 1], { value: 1 });
-    grid.set([0, 2], { value: 2 });
-    grid.set([1, 0], { value: 3 });
-    grid.set([2, 0], { value: 4 });
-    grid.set([2, 2], { value: 5 });
-
-    const cell = grid.get([0, 0]);
-
-    expect(grid.getOptions(cell)).toEqual([6, 7, 8, 9]);
   });
 });
