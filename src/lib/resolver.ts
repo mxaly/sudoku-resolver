@@ -16,7 +16,7 @@ function cleanOptions(grid: Grid): Grid {
   const cols: Record<sudokuValue, Cell[]>[] = Array(9);
   const boxes: Record<sudokuValue, Cell[]>[] = Array(9);
   for (const cell of grid.filter((c) => c.value === null)) {
-    for (const opt of OPTIONS) {
+    for (const opt of cell.options) {
       const row = rows[cell.row] || {};
       const col = cols[cell.col] || {};
       const box = boxes[cell.box] || {};
