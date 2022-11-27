@@ -82,6 +82,18 @@ export function set(grid: Grid, addr: cellAddress, data: Partial<CellData>) {
   return [...grid];
 }
 
+export function getBox(grid: Grid, boxID: number): Cell[] {
+  return grid.filter((c) => c.box === boxID);
+}
+
+export function getOptionsCount(grid: Grid): number {
+  let sum = 0;
+  for (const cell of grid) {
+    sum = sum + cell.options.length;
+  }
+  return sum;
+}
+
 function getBoxIndex([rowIndex, colIndex]: cellAddress): number {
   const row = Math.floor(rowIndex / 3);
   const column = Math.floor(colIndex / 3);

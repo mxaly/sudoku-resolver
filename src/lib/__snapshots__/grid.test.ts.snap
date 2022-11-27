@@ -1305,3 +1305,157 @@ exports[`Grid > createGrid 1`] = `
   },
 ]
 `;
+
+exports[`getBox 1`] = `
+[
+  {
+    "box": 0,
+    "col": 0,
+    "isConstant": false,
+    "options": [],
+    "row": 0,
+    "value": null,
+  },
+  {
+    "box": 0,
+    "col": 1,
+    "isConstant": false,
+    "options": [],
+    "row": 0,
+    "value": null,
+  },
+  {
+    "box": 0,
+    "col": 2,
+    "isConstant": false,
+    "options": [],
+    "row": 0,
+    "value": null,
+  },
+  {
+    "box": 0,
+    "col": 0,
+    "isConstant": false,
+    "options": [],
+    "row": 1,
+    "value": null,
+  },
+  {
+    "box": 0,
+    "col": 1,
+    "isConstant": false,
+    "options": [],
+    "row": 1,
+    "value": null,
+  },
+  {
+    "box": 0,
+    "col": 2,
+    "isConstant": false,
+    "options": [],
+    "row": 1,
+    "value": null,
+  },
+  {
+    "box": 0,
+    "col": 0,
+    "isConstant": false,
+    "options": [],
+    "row": 2,
+    "value": null,
+  },
+  {
+    "box": 0,
+    "col": 1,
+    "isConstant": false,
+    "options": [],
+    "row": 2,
+    "value": null,
+  },
+  {
+    "box": 0,
+    "col": 2,
+    "isConstant": false,
+    "options": [],
+    "row": 2,
+    "value": null,
+  },
+]
+`;
+
+exports[`getBox 2`] = `
+[
+  {
+    "box": 5,
+    "col": 6,
+    "isConstant": false,
+    "options": [],
+    "row": 3,
+    "value": null,
+  },
+  {
+    "box": 5,
+    "col": 7,
+    "isConstant": false,
+    "options": [],
+    "row": 3,
+    "value": null,
+  },
+  {
+    "box": 5,
+    "col": 8,
+    "isConstant": false,
+    "options": [],
+    "row": 3,
+    "value": null,
+  },
+  {
+    "box": 5,
+    "col": 6,
+    "isConstant": false,
+    "options": [],
+    "row": 4,
+    "value": null,
+  },
+  {
+    "box": 5,
+    "col": 7,
+    "isConstant": false,
+    "options": [],
+    "row": 4,
+    "value": null,
+  },
+  {
+    "box": 5,
+    "col": 8,
+    "isConstant": false,
+    "options": [],
+    "row": 4,
+    "value": null,
+  },
+  {
+    "box": 5,
+    "col": 6,
+    "isConstant": false,
+    "options": [],
+    "row": 5,
+    "value": null,
+  },
+  {
+    "box": 5,
+    "col": 7,
+    "isConstant": false,
+    "options": [],
+    "row": 5,
+    "value": null,
+  },
+  {
+    "box": 5,
+    "col": 8,
+    "isConstant": false,
+    "options": [],
+    "row": 5,
+    "value": null,
+  },
+]
+`;
