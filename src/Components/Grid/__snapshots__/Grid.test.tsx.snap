@@ -1,0 +1,492 @@
+// Vitest Snapshot v1
+
+exports[`Grid > should render the grid 1`] = `
+[
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    1
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    2
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    3
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    4
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    5
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    6
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    7
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    8
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    9
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    2
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    3
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    4
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    5
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    6
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    7
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    8
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    9
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    1
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    3
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    4
+  </div>,
+  <div
+    class="cell is-bottom-edge is-right-edge is-constant"
+    data-testid="cell"
+  >
+    5
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    6
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    7
+  </div>,
+  <div
+    class="cell is-bottom-edge is-right-edge is-constant"
+    data-testid="cell"
+  >
+    8
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    9
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    1
+  </div>,
+  <div
+    class="cell is-bottom-edge is-right-edge is-constant"
+    data-testid="cell"
+  >
+    2
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    4
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    5
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    6
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    7
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    8
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    9
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    1
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    2
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    3
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    5
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    6
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    7
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    8
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    9
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    1
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    2
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    3
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    4
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    6
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    7
+  </div>,
+  <div
+    class="cell is-bottom-edge is-right-edge is-constant"
+    data-testid="cell"
+  >
+    8
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    9
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    1
+  </div>,
+  <div
+    class="cell is-bottom-edge is-right-edge is-constant"
+    data-testid="cell"
+  >
+    2
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    3
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    4
+  </div>,
+  <div
+    class="cell is-bottom-edge is-right-edge is-constant"
+    data-testid="cell"
+  >
+    5
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    7
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    8
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    9
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    1
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    2
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    3
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    4
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    5
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    6
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    8
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    9
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    1
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    2
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    3
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    4
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    5
+  </div>,
+  <div
+    class="cell is-constant"
+    data-testid="cell"
+  >
+    6
+  </div>,
+  <div
+    class="cell is-right-edge is-constant"
+    data-testid="cell"
+  >
+    7
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    9
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    1
+  </div>,
+  <div
+    class="cell is-bottom-edge is-right-edge is-constant"
+    data-testid="cell"
+  >
+    2
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    3
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    4
+  </div>,
+  <div
+    class="cell is-bottom-edge is-right-edge is-constant"
+    data-testid="cell"
+  >
+    5
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    6
+  </div>,
+  <div
+    class="cell is-bottom-edge is-constant"
+    data-testid="cell"
+  >
+    7
+  </div>,
+  <div
+    class="cell is-bottom-edge is-right-edge is-constant"
+    data-testid="cell"
+  >
+    8
+  </div>,
+]
+`;
