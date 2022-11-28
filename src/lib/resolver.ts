@@ -1,17 +1,121 @@
-import { Cell, Grid, OPTIONS, set, sudokuValue } from "./grid";
+import { unique } from "./common";
+import {
+  Cell,
+  Grid,
+  OPTIONS,
+  set,
+  sudokuValue,
+  getBox,
+  getOptionsCount,
+} from "./grid";
 
-export function fillOptions(grid: Grid): Grid {
+export function init(grid: Grid): Grid {
+  grid = fillOptions(grid);
+  grid = cleanOptions(grid);
+  return grid;
+}
+
+export function resolveStep(grid: Grid): Grid {
+  const cell = findBestCells(grid).cells[0];
+
+  grid = set(grid, [cell.row, cell.col], {
+    value: cell.options[0],
+    options: [],
+  });
+  grid = fillOptions(grid);
+  grid = cleanOptions(grid);
+  return [...grid];
+}
+
+function fillOptions(grid: Grid): Grid {
   grid
     .filter((c) => c.value === null)
     .forEach((cell) => {
       const options = getOptions(grid, cell);
       grid = set(grid, [cell.row, cell.col], { options });
     });
-  grid = cleanOptions(grid);
+
   return grid;
 }
 
 function cleanOptions(grid: Grid): Grid {
+  const optionsCount = getOptionsCount([...grid]);
+  grid = cleanOptionsByArea(grid);
+  grid = cleanOptionsByBoxes(grid);
+  const newOptionsCount = getOptionsCount([...grid]);
+  if (optionsCount !== newOptionsCount) return cleanOptions(grid);
+  return [...grid];
+}
+
+function cleanOptionsByBoxes(grid: Grid): Grid {
+  for (let boxID = 0; boxID < 9; boxID++) {
+    const box = getBox(grid, boxID);
+    const optionsPerRow: Map<number, number[]> = new Map();
+    const optionsPerCol: Map<number, number[]> = new Map();
+
+    for (const opt of OPTIONS) {
+      for (const cell of box) {
+        if (cell.options.includes(opt)) {
+          optionsPerRow.set(
+            opt,
+            unique([...(optionsPerRow.get(opt) || []), cell.row])
+          );
+          optionsPerCol.set(
+            opt,
+            unique([...(optionsPerCol.get(opt) || []), cell.col])
+          );
+        }
+      }
+    }
+
+    optionsPerRow.forEach((rows, option) => {
+      if (rows.length === 1) {
+        grid = cleanRowOptions(grid, rows[0], option, { box: boxID });
+      }
+    });
+
+    optionsPerCol.forEach((cols, option) => {
+      if (cols.length === 1) {
+        grid = cleanColOptions(grid, cols[0], option, { box: boxID });
+      }
+    });
+  }
+  return [...grid];
+}
+
+function cleanColOptions(
+  grid: Grid,
+  col: number,
+  option: number,
+  exclude?: { box?: number }
+): Grid {
+  for (const cell of grid) {
+    if (cell.box !== exclude?.box && cell.col === col) {
+      set(grid, [cell.row, cell.col], {
+        options: cell.options.filter((o) => o !== option),
+      });
+    }
+  }
+  return grid;
+}
+
+function cleanRowOptions(
+  grid: Grid,
+  row: number,
+  option: number,
+  exclude?: { box?: number }
+): Grid {
+  for (const cell of grid) {
+    if (cell.box !== exclude?.box && cell.row === row) {
+      set(grid, [cell.row, cell.col], {
+        options: cell.options.filter((o) => o !== option),
+      });
+    }
+  }
+  return grid;
+}
+
+function cleanOptionsByArea(grid: Grid): Grid {
   const rows: Record<sudokuValue, Cell[]>[] = Array(9);
   const cols: Record<sudokuValue, Cell[]>[] = Array(9);
   const boxes: Record<sudokuValue, Cell[]>[] = Array(9);
@@ -42,18 +146,7 @@ function cleanOptions(grid: Grid): Grid {
       }
     });
   }
-  return grid;
-}
-
-export function resolveStep(grid: Grid): Grid {
-  const cell = findBestCells(grid).cells[0];
-
-  grid = set(grid, [cell.row, cell.col], {
-    value: cell.options[0],
-    options: [],
-  });
-  grid = fillOptions(grid);
-  return grid;
+  return [...grid];
 }
 
 function findBestCells(
