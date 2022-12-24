@@ -9,13 +9,18 @@ import {
   getOptionsCount,
 } from "./grid";
 
-export function init(grid: Grid): Grid {
-  grid = fillOptions(grid);
-  grid = cleanOptions(grid);
-  return grid;
+interface Resolver {
+  grid: Grid;
 }
 
-export function resolveStep(grid: Grid): Grid {
+export function init(grid: Grid): Resolver {
+  grid = fillOptions(grid);
+  grid = cleanOptions(grid);
+  return { grid };
+}
+
+export function resolveStep(resolver: Resolver): Resolver {
+  let { grid } = resolver;
   const cell = findBestCells(grid).cells[0];
 
   grid = set(grid, [cell.row, cell.col], {
@@ -24,7 +29,7 @@ export function resolveStep(grid: Grid): Grid {
   });
   grid = fillOptions(grid);
   grid = cleanOptions(grid);
-  return [...grid];
+  return { grid: [...grid] };
 }
 
 function fillOptions(grid: Grid): Grid {
