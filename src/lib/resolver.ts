@@ -9,7 +9,7 @@ import {
   getOptionsCount,
 } from "./grid";
 
-interface Resolver {
+export interface Resolver {
   grid: Grid;
 }
 
