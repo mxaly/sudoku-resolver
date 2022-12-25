@@ -9,13 +9,17 @@ import {
   getOptionsCount,
 } from "./grid";
 
-export function init(grid: Grid): Grid {
-  grid = fillOptions(grid);
-  grid = cleanOptions(grid);
-  return grid;
+export interface Sudoku {
+  grid: Grid;
 }
 
-export function resolveStep(grid: Grid): Grid {
+export function init(grid: Grid): Sudoku {
+  grid = fillOptions(grid);
+  grid = cleanOptions(grid);
+  return { grid };
+}
+
+export function resolveStep({grid}: Sudoku): Sudoku {
   const cell = findBestCells(grid).cells[0];
 
   grid = set(grid, [cell.row, cell.col], {
@@ -24,7 +28,7 @@ export function resolveStep(grid: Grid): Grid {
   });
   grid = fillOptions(grid);
   grid = cleanOptions(grid);
-  return [...grid];
+  return { grid: [...grid] };
 }
 
 function fillOptions(grid: Grid): Grid {

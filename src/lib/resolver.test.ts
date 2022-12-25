@@ -10,9 +10,9 @@ describe("resolver", () => {
 
   test("resolveStep", () => {
     let grid = createFromString(simple);
-    grid = init(grid);
-    grid = resolveStep(grid);
-    expect(grid).toMatchSnapshot();
-    expect(resolveStep(grid)).toMatchSnapshot();
+    let resolver = init(grid);
+    resolver = resolveStep(resolver);
+    expect(resolver).toMatchSnapshot();
+    expect(resolveStep(resolver)).toMatchSnapshot();
   });
 });
