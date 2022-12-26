@@ -3,9 +3,9 @@
   justify-content: center;
   align-items: center;
   margin: 1px;
-  border-radius: 3px;
-  background-color: var(--c-panel-bg);
-  font-size: var(--fs-4);
+  border-radius: var(--br-s);
+  background-color: var(--c-primary-bg);
+  font-size: var(--fs-50);
   color: var(--c-text-primary);
 
   // 3rd and 6th column/row have margin to separate 3x3 boxes
@@ -41,6 +41,6 @@
   justify-content: center;
   align-items: center;
 
-  font-size: var(--fs-04);
-  line-height: var(--fs-04);
+  font-size: var(--fs-10);
+  line-height: var(--fs-10);
 }
