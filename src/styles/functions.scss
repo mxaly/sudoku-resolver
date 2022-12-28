@@ -13,6 +13,7 @@
     #{$calcRem}rem + #{$calcVw}vw,
     #{$maxFontSize}rem
   ); // clamp(2.4, 1.5274rem + 2.727272vw ,4.8)
+
   @return $preferredValue;
 }
 

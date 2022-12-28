@@ -9,7 +9,7 @@ describe("resolver", () => {
   });
 
   test("resolveStep", () => {
-    let grid = createFromString(simple);
+    const grid = createFromString(simple);
     let resolver = init(grid);
     resolver = resolveStep(resolver);
     expect(resolver).toMatchSnapshot();

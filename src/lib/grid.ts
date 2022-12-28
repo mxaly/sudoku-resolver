@@ -1,7 +1,7 @@
 export type sudokuValue = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
 export type sudokuKey = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
-export let KEYS = [
+export const KEYS = [
   0 as sudokuKey,
   1 as sudokuKey,
   2 as sudokuKey,
@@ -14,10 +14,6 @@ export let KEYS = [
 ] as const;
 
 export type cellAddress = [sudokuKey, sudokuKey];
-
-function test(k: sudokuKey) {
-  console.log(k);
-}
 
 interface CellData {
   value: sudokuValue | null;
