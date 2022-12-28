@@ -1,12 +1,12 @@
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: var(--fs-base);
-  line-height: 24px;
-  font-weight: 400;
+  font-weight: var(--fw-base);
+  font-size: 62.5%; // Ensures 1rem is 10px
 
   color-scheme: light dark;
   color: var(--c-text-base);
-  background-color: var(--c-page-bg);
+  background-color: var(--c-bg-base);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,4 +28,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+
+  font-size: var(--fs-base);
+  line-height: 1.5em;
 }

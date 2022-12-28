@@ -1,40 +1,54 @@
 :root {
-  --c-primary: #66fcf1;
-  --c-secondary: #45a29e;
-
+  // colors palette
   --c-grey-10: #0b0c10;
-  --c-grey-20: #1f2833;
-  --c-grey-30: #757575;
-  --c-grey-40: #c5c5c7;
+  --c-grey-20: #14171c;
+  --c-grey-30: #1d2228;
+  --c-grey-40: #424242;
+  --c-grey-50: #585858;
 
-  --c-white: #fff;
-  --c-black: #000;
+  --c-white: #f3efe0;
+  --c-primary: #cba135;
+  --c-focus: #e4bb52;
+  --c-secondary: #b5b2ab;
+  --c-alert: #f2542d;
 
-  --c-text-base: var(--c-white);
+  // colors
   --c-text-primary: var(--c-primary);
+  --c-text-base: var(--c-white);
+  --c-text-placeholder: var(--c-grey-50);
+  --cell-font-size: #{sass_clamp(1, 2.4)};
 
-  --c-text-secondary: var(--c-grey-40);
-  --c-text-secondary-dark: var(--c-grey-30);
+  --c-bg-base: var(--c-grey-10);
+  --c-bg-panel: var(--c-grey-20);
+  --c-bg-elevated: var(--c-grey-30);
 
-  --c-page-bg: var(--c-gray-10);
-  --c-panel-bg: var(--c-grey-20);
+  // fonts
+  --fs-10: #{sass_clamp(0.8, 1)};
+  --fs-20: #{sass_clamp(1, 1.2)};
+  --fs-30: #{sass_clamp(1.1, 1.3)};
+  --fs-40: #{sass_clamp(1.2, 1.4)};
+  --fs-50: #{sass_clamp(1.6, 1.8)};
+  --fs-60: #{sass_clamp(2, 2.2)};
+  --fs-70: #{sass_clamp(2.3, 2.6)};
+  --fs-90: #{sass_clamp(3, 3.8)};
 
-  --c-border: var(--c-grey-30);
+  --fs-title: var(--fs-90);
+  --fs-h1: var(--fs-70);
+  --fs-h2: var(--fs-60);
+  --fs-h3: var(--fs-50);
+  --fs-h4: var(--fs-40);
 
-  --fs-h1: #{sass_clamp(2.2, 2.4)};
-  --fs-h2: #{sass_clamp(1.6, 1.8)};
-  --fs-h3: #{sass_clamp(1.4, 1.6)};
-  --fs-h4: #{sass_clamp(1.2, 1.4)};
-  --fs-h5: #{sass_clamp(1.2, 1.4)};
+  --fs-base: var(--fs-30);
+  --fs-small: var(--fs-20);
+  --fs-tiny: var(--fs-10);
 
-  --fs-04: #{sass_clamp(0.5, 0.7)};
-  --fs-1: #{sass_clamp(0.9, 1.1)};
-  --fs-2: #{sass_clamp(1.1, 1.3)};
-  --fs-3: #{sass_clamp(1.3, 1.6)};
-  --fs-4: #{sass_clamp(1.6, 1.9)};
-  --fs-5: #{sass_clamp(1.9, 2.1)};
+  --lh-base: #{sass_clamp(0.8, 1.6)};
 
-  --fs-base: var(--fs-2);
+  --fw-base: 400;
+  --fs-bold: 800;
+
+  // shadows
+  --shadow-primary: 0px 0px 5px 1px var(--c-primary);
 }
 
 @media (prefers-color-scheme: light) {
