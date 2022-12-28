@@ -1,6 +1,23 @@
 export type sudokuValue = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
-export type cellAddress = [number, number];
+export type sudokuKey = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+export let KEYS = [
+  0 as sudokuKey,
+  1 as sudokuKey,
+  2 as sudokuKey,
+  3 as sudokuKey,
+  4 as sudokuKey,
+  5 as sudokuKey,
+  6 as sudokuKey,
+  7 as sudokuKey,
+  8 as sudokuKey,
+] as const;
+
+export type cellAddress = [sudokuKey, sudokuKey];
+
+function test(k: sudokuKey) {
+  console.log(k);
+}
 
 interface CellData {
   value: sudokuValue | null;
@@ -9,9 +26,9 @@ interface CellData {
 }
 
 export interface Cell extends CellData {
-  row: number;
-  col: number;
-  box: number;
+  row: sudokuKey;
+  col: sudokuKey;
+  box: sudokuKey;
 }
 
 export type Grid = Cell[];
@@ -21,8 +38,8 @@ export const OPTIONS = [...Array(9).keys()].map((k) => (k + 1) as sudokuValue);
 
 export function createGrid(): Cell[] {
   const cells: Cell[] = [];
-  for (let row = 0; row < GRID_SIZE; row++) {
-    for (let col = 0; col < GRID_SIZE; col++) {
+  for (const row of KEYS) {
+    for (const col of KEYS) {
       cells.push(createCell({ row, col }));
     }
   }
@@ -35,8 +52,8 @@ export function createFromString(data: string): Cell[] {
     .replaceAll(/\s/g, "")
     .split("")
     .forEach((val, index) => {
-      const row = Math.floor(index / 9);
-      const col = index - row * 9;
+      const row = Math.floor(index / 9) as sudokuKey;
+      const col = (index - row * 9) as sudokuKey;
       const num = parseInt(val);
 
       if (num > 0) {
@@ -56,8 +73,8 @@ function createCell({
   options,
   isConstant,
 }: {
-  row: number;
-  col: number;
+  row: sudokuKey;
+  col: sudokuKey;
   value?: sudokuValue | null;
   options?: sudokuValue[];
   isConstant?: boolean;
@@ -82,7 +99,7 @@ export function set(grid: Grid, addr: cellAddress, data: Partial<CellData>) {
   return [...grid];
 }
 
-export function getBox(grid: Grid, boxID: number): Cell[] {
+export function getBox(grid: Grid, boxID: sudokuKey): Cell[] {
   return grid.filter((c) => c.box === boxID);
 }
 
@@ -94,12 +111,12 @@ export function getOptionsCount(grid: Grid): number {
   return sum;
 }
 
-function getBoxIndex([rowIndex, colIndex]: cellAddress): number {
+function getBoxIndex([rowIndex, colIndex]: cellAddress): sudokuKey {
   const row = Math.floor(rowIndex / 3);
   const column = Math.floor(colIndex / 3);
-  return row * 3 + column;
+  return (row * 3 + column) as sudokuKey;
 }
 
-function getIndex([row, col]: [number, number]) {
+function getIndex([row, col]: [sudokuKey, sudokuKey]) {
   return row * GRID_SIZE + col;
 }
