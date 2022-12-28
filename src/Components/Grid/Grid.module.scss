@@ -1,0 +1,16 @@
+.gridContainer {
+  aspect-ratio: 1/1;
+  width: 100%;
+  max-width: 660px;
+  max-height: 660px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+
+  width: 100%;
+  height: 100%;
+}

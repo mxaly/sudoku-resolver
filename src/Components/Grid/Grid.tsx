@@ -1,35 +1,17 @@
-import { Cell as CellData } from "@/lib/grid";
-import { Cell } from "./Cell";
-
-import "./Grid.scss";
+import { getBox, Grid as GridData, KEYS } from "@/lib/grid";
+import { Box } from "./Box";
+import styles from "./Grid.module.scss";
 
 interface Props {
-  cells: CellData[];
+  grid: GridData;
 }
 
-export function Grid({ cells }: Props) {
-  const renderCells = cells.map((c) => (
-    <Cell
-      key={`${c.row}${c.col}`}
-      value={c.value}
-      options={c.options}
-      isRightEdge={isRightEdgeCell(c)}
-      isBottomEdge={isBottomEdgeCell(c)}
-      isConstant={c.isConstant}
-    />
-  ));
+export function Grid({ grid }: Props) {
+  const boxes = KEYS.map((key) => <Box key={key} cells={getBox(grid, key)} />);
 
   return (
-    <div className="grid-container">
-      <div className="grid">{renderCells}</div>
+    <div className={styles.gridContainer}>
+      <div className={styles.grid}>{boxes}</div>
     </div>
   );
-}
-
-function isRightEdgeCell(cell: CellData) {
-  return (cell.col + 1) % 3 === 0;
-}
-
-function isBottomEdgeCell(cell: CellData) {
-  return (cell.row + 1) % 3 === 0;
 }

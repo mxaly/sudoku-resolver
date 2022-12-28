@@ -7,6 +7,7 @@ import {
   sudokuValue,
   getBox,
   getOptionsCount,
+  KEYS,
 } from "./grid";
 
 interface Resolver {
@@ -53,7 +54,7 @@ function cleanOptions(grid: Grid): Grid {
 }
 
 function cleanOptionsByBoxes(grid: Grid): Grid {
-  for (let boxID = 0; boxID < 9; boxID++) {
+  for (const boxID of KEYS) {
     const box = getBox(grid, boxID);
     const optionsPerRow: Map<number, number[]> = new Map();
     const optionsPerCol: Map<number, number[]> = new Map();
@@ -156,7 +157,7 @@ function cleanOptionsByArea(grid: Grid): Grid {
 
 function findBestCells(
   grid: Grid,
-  size: number = 1
+  size = 1
 ): {
   cells: Cell[];
   //size: number
