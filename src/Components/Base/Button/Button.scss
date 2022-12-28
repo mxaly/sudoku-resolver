@@ -1,0 +1,43 @@
+.button {
+  --background: var(--c-primary);
+  --padding: var(--padding-s);
+  --border-radius: var(--br-s);
+  --text-color: var(--c-text-dark);
+  --margin: var(--padding-s);
+  --font-size: var(--fs-base);
+  --icon-size: 20px;
+
+  display: flex;
+  align-items: center;
+  margin: var(--padding);
+  border: none;
+  background: var(--background);
+  border-radius: var(--border-radius);
+  outline: none;
+  color: var(--text-color);
+
+  &:hover {
+    box-shadow: var(--box-shadow-m-bold);
+    --background: var(--c-primary-light);
+  }
+
+  .icon {
+    aspect-ratio: 1 / 1;
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+
+  .label {
+    padding: var(--padding);
+    font-size: var(--font-size);
+  }
+
+  &.is-small-size {
+    --font-size: var(--fs-10);
+    --icon-size: 15px;
+  }
+
+  &.is-secondary-type {
+    --background: var(--c-secondary);
+  }
+}

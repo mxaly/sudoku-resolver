@@ -1,29 +1,20 @@
 :root {
-  --c-primary: #66fcf1;
-  --c-secondary: #45a29e;
-
+  // colors palette
   --c-grey-10: #0b0c10;
-  --c-grey-15: #1e212c;
-  --c-grey-20: #1f2833;
-  --c-grey-25: #2f3c4d;
-  --c-grey-30: #757575;
-  --c-grey-40: #c5c5c7;
+  --c-grey-20: #14171c;
+  --c-grey-30: #1d2228;
+  --c-grey-40: #424242;
+  --c-grey-50: #585858;
 
-  --c-white: #fff;
-  --c-black: #000;
+  --c-white: #f3efe0;
+  --c-primary: #cba135;
+  --c-focus: #e4bb52;
+  --c-secondary: #b5b2ab;
+  --c-alert: #f2542d;
 
-  --c-text-base: var(--c-white);
-  --c-text-primary: var(--c-primary);
-  --c-text-secondary: var(--c-grey-40);
-  --c-text-secondary-dark: var(--c-grey-30);
-
-  --c-page-bg: var(--c-grey-10);
-  --c-primary-bg: var(--c-grey-20);
-  --c-panel-bg: var(--c-grey-15);
-
-  --c-border: var(--c-grey-30);
-
-  --c-shadow: var(--c-grey-25);
+  // shadows
+  --primary-shadow: 0px 0px 5px 115px var(--c-primary);
+  --base-shadow: 0px 0px 3px rgba(var(--c-white) 0.5);
 
   --fs-h1: #{sass_clamp(2.2, 2.4)};
   --fs-h2: #{sass_clamp(1.6, 1.8)};
@@ -37,7 +28,7 @@
   --fs-40: #{sass_clamp(1.3, 1.6)};
   --fs-50: #{sass_clamp(1.6, 1.9)};
 
-  --fs-base: var(--fs-30);
+  --fs-base: var(--fs-20);
 
   --s-panel-s: 400px;
   --s-panel-m: 700px;
@@ -47,8 +38,11 @@
   --br-m: 5px;
   --br-l: 15px;
 
+  --padding-s: 5px;
+  --padding-m: 15px;
   --padding-l: 25px;
 
+  --box-shadow-m-bold: 0px 0px 5px 0px var(--c-primary-light);
   --box-shadow-m: 0px 0px 10px 0px var(--c-shadow);
 }
 
