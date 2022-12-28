@@ -19,5 +19,9 @@ export function Box({ cells }: Props) {
     );
   });
 
-  return <div className={styles.box}>{renderCells}</div>;
+  return (
+    <div className={styles.box} data-testid="box">
+      {renderCells}
+    </div>
+  );
 }

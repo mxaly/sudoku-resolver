@@ -18,7 +18,12 @@ describe("Grid", () => {
     912345678`);
 
     const wrapper = render(<Grid grid={grid} />);
-    const cols = wrapper.getAllByTestId("cell");
-    expect(cols).toMatchSnapshot();
+    const boxes = wrapper.getAllByTestId("box");
+    expect(boxes.length).toEqual(9);
+
+    const cells = wrapper.getAllByTestId("cell");
+    expect(cells.length).toEqual(9 * 9);
+
+    expect(cells[0].textContent).toEqual("1");
   });
 });

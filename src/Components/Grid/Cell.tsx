@@ -1,9 +1,7 @@
-import { sudokuValue } from "@/lib/grid";
+import { OPTIONS, sudokuValue } from "@/lib/grid";
 import classNames from "classnames";
 
 import style from "./Cell.module.scss";
-
-const EMPTY_OPTIONS = Array(9).fill(null);
 
 interface Props {
   value: sudokuValue | null;
@@ -11,9 +9,9 @@ interface Props {
   isConstant: boolean;
 }
 export function Cell({ value, options, isConstant }: Props) {
-  const optionsList = EMPTY_OPTIONS.map((opt, index) => (
-    <div className={style.option} key={index}>
-      {options.includes((index + 1) as sudokuValue) ? index + 1 : ""}
+  const optionsList = OPTIONS.map((opt) => (
+    <div className={style.option} key={opt}>
+      {options.includes(opt as sudokuValue) ? opt : ""}
     </div>
   ));
 

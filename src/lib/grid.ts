@@ -1,17 +1,6 @@
 export type sudokuValue = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
 export type sudokuKey = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
-export const KEYS = [
-  0 as sudokuKey,
-  1 as sudokuKey,
-  2 as sudokuKey,
-  3 as sudokuKey,
-  4 as sudokuKey,
-  5 as sudokuKey,
-  6 as sudokuKey,
-  7 as sudokuKey,
-  8 as sudokuKey,
-] as const;
 
 export type cellAddress = [sudokuKey, sudokuKey];
 
@@ -30,6 +19,17 @@ export interface Cell extends CellData {
 export type Grid = Cell[];
 
 const GRID_SIZE = 9;
+export const KEYS = [
+  0 as sudokuKey,
+  1 as sudokuKey,
+  2 as sudokuKey,
+  3 as sudokuKey,
+  4 as sudokuKey,
+  5 as sudokuKey,
+  6 as sudokuKey,
+  7 as sudokuKey,
+  8 as sudokuKey,
+] as const;
 export const OPTIONS = [...Array(9).keys()].map((k) => (k + 1) as sudokuValue);
 
 export function createGrid(): Cell[] {
