@@ -1,5 +1,11 @@
+import { Resolver } from "@/Pages/Resolver/Resolver";
+
 function App() {
-  return <p>TODO</p>;
+  return (
+    <>
+      <Resolver />
+    </>
+  );
 }
 
 export default App;
