@@ -5,7 +5,7 @@ import {
   getOptionsCount,
   set,
 } from "./grid";
-import { describe, expect } from "vitest";
+import { describe, expect, test } from "vitest";
 import { getBox } from "./grid";
 
 describe("Grid", () => {

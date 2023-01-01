@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import { unique } from "./common";
 
 test("unique", () => {

@@ -1,6 +1,7 @@
 import { createFromString } from "@/lib/grid";
 import { render } from "@testing-library/react";
 import { Grid } from "./Grid";
+import { describe, it, expect } from "vitest";
 
 describe("Grid", () => {
   it("should render the grid", () => {
