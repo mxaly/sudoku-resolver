@@ -10,17 +10,29 @@ import {
   sudokuValue,
 } from "./grid";
 
-interface Resolver {
+export interface Resolver {
+  init(grid: Grid): ResolverState;
+  resolveStep(resolver: ResolverState): ResolverState;
+  getOptionsCount(grid: Grid): number;
+}
+
+interface ResolverState {
   grid: Grid;
 }
 
-export function init(grid: Grid): Resolver {
+export const resolver: Resolver = {
+  init,
+  resolveStep,
+  getOptionsCount,
+};
+
+export function init(grid: Grid): ResolverState {
   grid = fillOptions(grid);
   grid = cleanOptions(grid);
   return { grid };
 }
 
-export function resolveStep(resolver: Resolver): Resolver {
+export function resolveStep(resolver: ResolverState): ResolverState {
   let { grid } = resolver;
   const cell = findBestCells(grid).cells[0];
 

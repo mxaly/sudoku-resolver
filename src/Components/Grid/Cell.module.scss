@@ -1,5 +1,3 @@
-@import "@/styles/functions";
-
 .cell {
   --text-color: var(--c-text-primary);
 
@@ -9,7 +7,7 @@
 
   aspect-ratio: 1/1;
 
-  font-size: 4vmin;
+  font-size: min(4vmin, var(--fs-h1));
   color: var(--text-color);
 
   background-color: var(--c-bg-elevated);
@@ -38,5 +36,5 @@
 
   aspect-ratio: 1/1;
 
-  font-size: 1.9vmin;
+  font-size: min(1.9vmin, var(--fs-base));
 }
