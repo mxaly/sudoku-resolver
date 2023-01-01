@@ -1,6 +1,6 @@
-import classNames from "classnames";
-
 import "./PageLayout.scss";
+
+import classNames from "classnames";
 
 interface Props {
   children: React.ReactNode;

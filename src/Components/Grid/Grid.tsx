@@ -1,4 +1,5 @@
 import { getBox, Grid as GridData, KEYS } from "@/lib/grid";
+
 import { Box } from "./Box";
 import styles from "./Grid.module.scss";
 

@@ -1,7 +1,8 @@
+import { describe, expect, test } from "vitest";
+
 import { simple } from "../examples";
 import { createFromString } from "./grid";
 import { init, resolveStep } from "./resolver";
-import { describe, test, expect } from "vitest";
 
 describe("resolver", () => {
   test("init", () => {

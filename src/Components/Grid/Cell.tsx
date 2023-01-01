@@ -1,5 +1,6 @@
-import { OPTIONS, sudokuValue } from "@/lib/grid";
 import classNames from "classnames";
+
+import { OPTIONS, sudokuValue } from "@/lib/grid";
 
 import style from "./Cell.module.scss";
 

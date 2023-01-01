@@ -1,7 +1,7 @@
 import { Cell as CellData } from "@/lib/grid";
-import { Cell } from "./Cell";
 
 import styles from "./Box.module.scss";
+import { Cell } from "./Cell";
 
 interface Props {
   cells: CellData[];

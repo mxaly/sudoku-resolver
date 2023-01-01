@@ -8,7 +8,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "eslint-plugin-prettier",
   ],
   overrides: [],
   parser: "@typescript-eslint/parser",
@@ -16,11 +15,13 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "simple-import-sort", "prettier"],
   rules: {
     indent: ["error", 2],
     semi: ["error", "always"],
     "react/react-in-jsx-scope": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
   },
   settings: {
     react: { version: "detect" },

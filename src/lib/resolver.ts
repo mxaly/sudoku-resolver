@@ -1,13 +1,13 @@
 import { unique } from "./common";
 import {
   Cell,
+  getBox,
+  getOptionsCount,
   Grid,
+  KEYS,
   OPTIONS,
   set,
   sudokuValue,
-  getBox,
-  getOptionsCount,
-  KEYS,
 } from "./grid";
 
 interface Resolver {
