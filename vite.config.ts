@@ -12,6 +12,13 @@ export default defineConfig({
     },
   },
   plugins: [svgr(), react()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/styles/shared.scss";`,
+      },
+    },
+  },
   test: {
     globals: true,
     environment: "jsdom",
