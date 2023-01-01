@@ -8,6 +8,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "eslint-plugin-prettier",
   ],
   overrides: [],
   parser: "@typescript-eslint/parser",
@@ -18,7 +19,6 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     indent: ["error", 2],
-    quotes: ["error", "double"],
     semi: ["error", "always"],
     "react/react-in-jsx-scope": "off",
   },
